@@ -6,9 +6,11 @@ use PHPCR\SessionInterface as Session,
     PHPCR\CredentialsInterface as Credentials;
 
 /**
- * Generates 
+ * Generates Sessions through credentials and repository
  *
- * @author ocramius
+ * @category   ZfPhpcrOdm
+ * @package    ZfPhpcrOdm\SessionFactory
+ * @author     Marco Pivetta <ocramius@gmail.com>
  */
 abstract class SessionFactory {
     
