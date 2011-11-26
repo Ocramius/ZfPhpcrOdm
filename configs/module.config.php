@@ -121,20 +121,132 @@ return array(
                         ),
                     ),
                 ),
-                'PHPCR\RepositoryInterface' => array(
-                    'instantiator' => array(
-                        'Jackalope\RepositoryFactoryJackrabbit',
-                        'getRepository',
-                    ),
-                ),
-                'Jackalope\RepositoryFactoryJackrabbit' => array(
+                'Jackalope\Repository' => array(
+                    'instantiator' => '__construct',
                     'methods' => array(
-                        'getRepository' => array(
-                            'parameters' => array(
+                        '__construct' => array(
+                            'factory' => array(
+                                'type' => 'Jackalope\Factory',
+                                'required' => true,
+                            ),
+                            'transport' => array(
+                                'type' => 'Jackalope\TransportInterface',
+                                'required' => true,
+                            ),
+                            'options' => array(
                                 'type' => false,
                                 'required' => false,
                             ),
                         ),
+                    ),
+                ),
+                'Jackalope\Transport\Jackrabbit\Client' => array(
+                    'instantiator' => '__construct',
+                    'methods' => array(
+                        '__construct' => array(
+                            'factory' => array(
+                                'type' => 'Jackalope\Factory',
+                                'required' => true,
+                            ),
+                            'serverUri' => array(
+                                'type' => false,
+                                'required' => true,
+                            ),
+                        ),
+                        'addDefaultHeader' => array(
+                            'defaultHeader' => array(
+                                'type' => false,
+                                'required' => true,
+                            ),
+                        ),
+                        'sendExpect' => array(
+                            'expect' => array(
+                                'type' => false,
+                                'required' => true,
+                            ),
+                        ),
+                        'setCheckLoginOnServer' => array(
+                            'checkLoginOnServer' => array(
+                                'type' => false,
+                                'required' => true,
+                            ),
+                        ),
+                    ),
+                ),
+                'Jackalope\Transport\DoctrineDBAL\Client' => array(
+                    'instantiator' => '__construct',
+                    'methods' => array(
+                        '__construct' => array(
+                            'factory' => array(
+                                'type' => 'Jackalope\Factory',
+                                'required' => true,
+                            ),
+                            'conn' => array(
+                                'type' => 'Doctrine\DBAL\Connection',
+                                'required' => true,
+                            ),
+                            'indexes' => array(
+                                'type' => false,
+                                'required' => false,
+                            ),
+                            'cache' => array(
+                                'type' => 'Doctrine\Common\Cache\Cache',
+                                'required' => false,
+                            ),
+                        ),
+                        'setCheckLoginOnServer' => array(
+                            'checkLoginOnServer' => array(
+                                'type' => false,
+                                'required' => true,
+                            ),
+                        ),
+                    ),
+                ),
+                'Doctrine\DBAL\Connection' => array(
+                    'instantiator' => array(
+                        'Doctrine\DBAL\DriverManager',
+                        'getConnection',
+                    ),
+                ),
+                'Doctrine\DBAL\DriverManager' => array(
+                    'methods' => array(
+                        'getConnection' => array(
+                            'params' => array(
+                                'type' => false,
+                                'required' => true,
+                            ),
+                            'config' => array(
+                                'type' => 'Doctrine\DBAL\Configuration',
+                                'required' => false,
+                            ),
+                            'eventManager' => array(
+                                'type' => 'Doctrine\Common\EventManager',
+                                'required' => false,
+                            ),
+                        ),
+                    ),
+                ),
+                'Doctrine\DBAL\Configuration' => array(
+                    'instantiator' => '__construct',
+                    'methods' => array(
+                        'setSQLLogger' => array(
+                            'logger' => array(
+                                'type' => 'Doctrine\DBAL\Logging\SQLLogger',
+                                'required' => true,
+                            ),
+                        ),
+                        'setResultCacheImpl' => array(
+                            'cacheImpl' => array(
+                                'type' => 'Doctrine\Common\Cache\Cache',
+                                'required' => true,
+                            ),
+                        ),
+                    ),
+                ),
+                'Jackalope\Factory' => array(
+                    'instantiator' => '__construct',
+                    'methods' => array(
+                        '__construct' => array(),
                     ),
                 ),
                 'Symfony\Component\Console\Application' => array(
@@ -160,7 +272,16 @@ return array(
                 //session
                 'zfphpcrodm-session'                    => 'PHPCR\SessionInterface',
                 'zfphpcrodm-credentials'                => 'PHPCR\SimpleCredentials',
-                'zfphpcrodm-repository'                 => 'PHPCR\RepositoryInterface',
+                
+                //repository
+                'zfphpcrodm-repository'                 => 'Jackalope\Repository',
+                'zfphpcrodm-jackrabbittransport'        => 'Jackalope\Transport\Jackrabbit\Client',
+                'zfphpcrodm-dbaltransport'              => 'Jackalope\Transport\DoctrineDBAL\Client',
+                'zfphpcrodm-jackalopefactory'           => 'Jackalope\Factory',
+                'zfphpcrodm-dbalconnection'             => 'Doctrine\DBAL\Connection',
+                'zfphpcrodm-dbaltransportcache'         => 'Doctrine\Common\Cache\ArrayCache',
+                'zfphpcrodm-dbalconfiguration'          => 'Doctrine\DBAL\Configuration',
+                'zfphpcrodm-dbalresultcache'            => 'Doctrine\Common\Cache\ArrayCache',
                 
                 //config
                 'zfphpcrodm-configuration'              => 'Doctrine\ODM\PHPCR\Configuration',
@@ -228,9 +349,64 @@ return array(
             
             'zfphpcrodm-repository' => array(
                 'parameters' => array(
-                    'parameters' => array(
-                        'jackalope.jackrabbit_uri' => 'http://127.0.0.1:8888/server/',
+                    'factory' => 'zfphpcrodm-jackalopefactory',
+                    'transport' => 'zfphpcrodm-jackrabbittransport',
+                    //'transport' => 'zfphpcrodm-dbaltransport',
+                    'options' => array(
+                        'transactions' => true,
+                        'stream_wrapper' => true,
                     ),
+                ),
+            ),
+            
+            'zfphpcrodm-jackrabbittransport' => array(
+                'parameters' => array(
+                    'factory' => 'zfphpcrodm-jackalopefactory',
+                    'serverUri' => 'http://127.0.0.1:8888/server/',
+                    'checkLoginOnServer' => false,
+                    'expect' => false,
+                ),
+            ),
+            
+            'zfphpcrodm-dbaltransport' => array(
+                'parameters' => array(
+                    'factory' => 'zfphpcrodm-jackalopefactory',
+                    'conn' => 'zfphpcrodm-dbalconnection',
+                    'indexes' => array(),
+                    'cache' => 'zfphpcrodm-dbaltransportcache',
+                    'checkLoginOnServer' => false,
+                ),
+            ),
+            
+            'zfphpcrodm-dbaltransportcache' => array(
+                'parameters' => array(
+                    'namespace' => 'zfphpcrodm_dbaltransportcache',
+                ),
+            ),
+            
+            'zfphpcrodm-dbalconnection' => array(
+                'parameters' => array(
+                    'params' => array(
+                        'driver'   => 'pdo_mysql',
+                        'host'     => 'localhost',
+                        'user'     => 'root',
+                        'password' => '',
+                        'dbname'   => 'test',
+                    ),
+                    'config' => 'zfphpcrodm-dbalconfiguration',
+                    'eventManager' => 'zfphpcrodm-eventmanager',
+                ),
+            ),
+            
+            'zfphpcrodm-dbalconfiguration' => array(
+                'parameters' => array(
+                    'cacheImpl' => 'zfphpcrodm-dbalresultcache',
+                ),
+            ),
+            
+            'zfphpcrodm-dbalresultcache' => array(
+                'parameters' => array(
+                    'namespace' => 'zfphpcrodm_dbalresultcache',
                 ),
             ),
             
@@ -240,6 +416,7 @@ return array(
                     'zfphpcrodm-annotationdriver',
                 ),
             ),
+            
             'zfphpcrodm-annotationdriver' => array(
                 'parameters' => array(
                     'reader' => 'zfphpcrodm-cachedreader',
@@ -248,17 +425,20 @@ return array(
                     ),
                 ),
             ),
+            
             'zfphpcrodm-cachedreader' => array(
                 'parameters' => array(
                     'reader' => 'zfphpcrodm-indexedreader',
                     'cache' => 'zfphpcrodm-annotationcache',
                 ),
             ),
+            
             'zfphpcrodm-annotationcache' => array(
                 'parameters' => array(
                     'namespace' => 'zfphpcrodm_annotation',
                 ),
             ),
+            
             'zfphpcrodm-indexedreader' => array(
                 'parameters' => array(
                     'reader' => 'zfphpcrodm-annotationreader',
