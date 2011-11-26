@@ -92,10 +92,18 @@ return array(
                 
                 //config
                 'zfphpcrodm-configuration'              => 'Doctrine\ODM\PHPCR\Configuration',
-                //'zfphpcrodm-metadatacache'              => 'Doctrine\Common\Cache\ArrayCache',
+                'zfphpcrodm-metadatacache'              => 'Doctrine\Common\Cache\ArrayCache',
                 
                 //event manager
                 'zfphpcrodm-eventmanager'               => 'Doctrine\Common\EventManager',
+                
+                //metadata
+                'zfphpcrodm-metadatadriver'             => 'ZfPhpcrOdm\ODM\PHPCR\Mapping\Driver\DriverChain',
+                'zfphpcrodm-annotationdriver'           => 'Doctrine\ODM\PHPCR\Mapping\Driver\AnnotationDriver',
+                'zfphpcrodm-cachedreader'               => 'Doctrine\Common\Annotations\CachedReader',
+                'zfphpcrodm-annotationcache'            => 'Doctrine\Common\Cache\ArrayCache',
+                'zfphpcrodm-indexedreader'              => 'Doctrine\Common\Annotations\IndexedReader',
+                'zfphpcrodm-annotationreader'           => 'Doctrine\Common\Annotations\AnnotationReader',
                 
                 //cli tools
                 'zfphpcrodm-cli'                        => 'Symfony\Component\Console\Application',
@@ -123,6 +131,13 @@ return array(
                 ),
             ),
             
+            'zfphpcrodm-metadatacache' => array(
+                'parameters' => array(
+                    'namespace' => 'zfphpcrodm_metadatacache',
+                ),
+            ),
+            
+            //session
             'zfphpcrodm-session' => array(
                 'parameters' => array(
                     'repository' => 'zfphpcrodm-repository',
@@ -146,6 +161,38 @@ return array(
                 ),
             ),
             
+            //metadata
+            'zfphpcrodm-metadatadriver' => array(
+                'injections' => array(
+                    'zfphpcrodm-annotationdriver',
+                ),
+            ),
+            'zfphpcrodm-annotationdriver' => array(
+                'parameters' => array(
+                    'reader' => 'zfphpcrodm-cachedreader',
+                    'paths' => array(
+                        __DIR__ . '/../src/ZfPhpcrOdm/Document',
+                    ),
+                ),
+            ),
+            'zfphpcrodm-cachedreader' => array(
+                'parameters' => array(
+                    'reader' => 'zfphpcrodm-indexedreader',
+                    'cache' => 'zfphpcrodm-annotationcache',
+                ),
+            ),
+            'zfphpcrodm-annotationcache' => array(
+                'parameters' => array(
+                    'namespace' => 'zfphpcrodm_annotation',
+                ),
+            ),
+            'zfphpcrodm-indexedreader' => array(
+                'parameters' => array(
+                    'reader' => 'zfphpcrodm-annotationreader',
+                ),
+            ),
+            
+            //cli
             'zfphpcrodm-cli' => array(
                 'parameters' => array(
                     'name'      => 'ZfPhpcrOdm Module\'s CLI tools running on Doctrine PHPCR ODM V' . \Doctrine\ODM\PHPCR\Version::VERSION,
