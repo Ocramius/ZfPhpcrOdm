@@ -30,10 +30,11 @@ return array(
                         'ZfPhpcrOdm\SessionFactory',
                         'getSession',
                     ),
+                ),
+                'ZfPhpcrOdm\SessionFactory' => array(
                     'methods' => array(
                         'getSession' => array(
                             'repository' => array(
-                                //'type' => 'Jackalope\Repository',
                                 'type' => 'PHPCR\RepositoryInterface',
                                 'required' => true,
                             ),
@@ -50,14 +51,16 @@ return array(
                 ),
                 'PHPCR\RepositoryInterface' => array(
                     'instantiator' => array(
-                        'ZfPhpcrOdm\RepositoryFactory',
-                        'getJackrabbitRepository',
+                        'Jackalope\RepositoryFactoryJackrabbit',
+                        'getRepository',
                     ),
+                ),
+                'Jackalope\RepositoryFactoryJackrabbit' => array(
                     'methods' => array(
-                        'getJackrabbitRepository' => array(
-                            'uri' => array(
+                        'getRepository' => array(
+                            'parameters' => array(
                                 'type' => false,
-                                'required' => true,
+                                'required' => false,
                             ),
                         ),
                     ),
@@ -137,7 +140,9 @@ return array(
             
             'zfphpcrodm-repository' => array(
                 'parameters' => array(
-                    'uri' => 'http://127.0.0.1:8888/server/',
+                    'parameters' => array(
+                        'jackalope.jackrabbit_uri' => 'http://127.0.0.1:8888/server/',
+                    ),
                 ),
             ),
             
