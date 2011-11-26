@@ -6,6 +6,7 @@ Zend\Loader\AutoloaderFactory::factory(array(
             'ZfPhpcrOdm'                => __DIR__ . '/src/ZfPhpcrOdm',
             'Doctrine\ODM\PHPCR'        => __DIR__ . '/library/doctrine-phpcr-odm/lib/Doctrine/ODM/PHPCR',
             'Doctrine\Common'           => __DIR__ . '/library/doctrine-phpcr-odm/lib/vendor/doctrine-common/lib/Doctrine/Common',
+            'Doctrine\DBAL'             => __DIR__ . '/library/doctrine-dbal/lib/Doctrine/DBAL',
             'Jackalope'                 => __DIR__ . '/library/doctrine-phpcr-odm/lib/vendor/jackalope/src/Jackalope',
             'PHPCR\Util'                => __DIR__ . '/library/doctrine-phpcr-odm/lib/vendor/jackalope/lib/phpcr-utils/src/PHPCR/Util',
             'PHPCR'                     => __DIR__ . '/library/doctrine-phpcr-odm/lib/vendor/jackalope/lib/phpcr/src/PHPCR',

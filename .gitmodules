@@ -1,3 +1,6 @@
 [submodule "library/doctrine-phpcr-odm"]
 	path = library/doctrine-phpcr-odm
 	url = https://github.com/doctrine/phpcr-odm.git
+[submodule "library/doctrine-dbal"]
+	path = library/doctrine-dbal
+	url = https://github.com/doctrine/dbal.git
