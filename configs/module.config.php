@@ -87,6 +87,16 @@ return array(
                         ),
                     ),
                 ),
+                'ZfPhpcrOdm\ODM\PHPCR\Mapping\Driver\DriverChain' => array(
+                    'methods' => array(
+                        'addDriver' => array(
+                            'nestedDriver' => array(
+                                'type' => 'Doctrine\ODM\PHPCR\Mapping\Driver\Driver',
+                                'required' => true,
+                            ),
+                        ),
+                    ),
+                ),
                 'PHPCR\SessionInterface' => array(
                     'instantiator' => array(
                         'ZfPhpcrOdm\SessionFactory',
