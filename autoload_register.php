@@ -4,7 +4,7 @@ Zend\Loader\AutoloaderFactory::factory(array(
     'Zend\Loader\StandardAutoloader' => array(
         Zend\Loader\StandardAutoloader::LOAD_NS => array(
             /** @todo fix autoloading here */
-            'ZfPhpcrOdm'                => __DIR__ . '/src/ZfMongoDbOdm',
+            'ZfPhpcrOdm'                => __DIR__ . '/src/ZfPhpcrOdm',
             'Doctrine\ODM'              => __DIR__ . '/library/doctrine-phpcr-odm/lib/Doctrine/ODM',
             'Doctrine\Common'           => __DIR__ . '/library/doctrine-phpcr-odm/lib/vendor/doctrine-common/lib/Doctrine/Common',
             'Jackalope'                 => __DIR__ . '/library/doctrine-phpcr-odm/lib/vendor/jackalope/src/Jackalope',
