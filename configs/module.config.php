@@ -122,7 +122,6 @@ return array(
                     ),
                 ),
                 'Jackalope\Repository' => array(
-                    'instantiator' => '__construct',
                     'methods' => array(
                         '__construct' => array(
                             'factory' => array(
@@ -141,7 +140,6 @@ return array(
                     ),
                 ),
                 'Jackalope\Transport\Jackrabbit\Client' => array(
-                    'instantiator' => '__construct',
                     'methods' => array(
                         '__construct' => array(
                             'factory' => array(
@@ -174,7 +172,6 @@ return array(
                     ),
                 ),
                 'Jackalope\Transport\DoctrineDBAL\Client' => array(
-                    'instantiator' => '__construct',
                     'methods' => array(
                         '__construct' => array(
                             'factory' => array(
@@ -227,7 +224,6 @@ return array(
                     ),
                 ),
                 'Doctrine\DBAL\Configuration' => array(
-                    'instantiator' => '__construct',
                     'methods' => array(
                         'setSQLLogger' => array(
                             'logger' => array(
@@ -243,12 +239,6 @@ return array(
                         ),
                     ),
                 ),
-                'Jackalope\Factory' => array(
-                    'instantiator' => '__construct',
-                    'methods' => array(
-                        '__construct' => array(),
-                    ),
-                ),
                 'Symfony\Component\Console\Application' => array(
                     'methods' => array(
                         'add' => array(
@@ -257,6 +247,54 @@ return array(
                                 'required' => true
                             ),
                         ),
+                    ),
+                ),
+                'Symfony\Component\Console\Helper\HelperSet' => array(
+                    'methods' => array(
+                        'set' => array(
+                            'helper' => array(
+                                'type' => 'Symfony\Component\Console\Helper\HelperInterface',
+                                'required' => true,
+                            ),
+                            'alias' => array(
+                                'type' => false,
+                                'required' => false,
+                            ),
+                        ),
+                        'setCommand' => array(
+                            'command' => array(
+                                'type' => 'Symfony\Component\Console\Command\Command',
+                                'required' => false,
+                            ),
+                        ),
+                    ),
+                ),
+                'Doctrine\ODM\PHPCR\Tools\Console\Helper\DocumentManagerHelper' => array(
+                    'methods' => array(
+                        '__construct' => array(
+                            'session' => array(
+                                'type' => 'PHPCR\SessionInterface',
+                                'required' => false,
+                            ),
+                            'dm' => array(
+                                'type' => 'Doctrine\ODM\PHPCR\DocumentManager',
+                                'required' => false,
+                            ),
+                        )
+                    ),
+                ),
+                'Jackalope\Tools\Console\Helper\JackrabbitHelper' => array(
+                    'methods' => array(
+                        '__construct' => array(
+                            'jackrabbit_jar' => array(
+                                'type' => false,
+                                'required' => true,
+                            ),
+                            'workspace_dir' => array(
+                                'type' => false,
+                                'required' => false,
+                            ),
+                        )
                     ),
                 ),
             ),
@@ -301,6 +339,7 @@ return array(
                 'zfphpcrodm-cli'                        => 'Symfony\Component\Console\Application',
                 'zfphpcrodm-helperset'                  => 'Symfony\Component\Console\Helper\HelperSet',
                 'zfphpcrodm-dmhelper'                   => 'Doctrine\ODM\PHPCR\Tools\Console\Helper\DocumentManagerHelper',
+                'zfphpcrodm-jackrabbithelper'           => 'Jackalope\Tools\Console\Helper\JackrabbitHelper',
                 
                 //cli commands
                 'zfphpcrodm-cli-createworkspace'        => 'PHPCR\Util\Console\Command\CreateWorkspaceCommand',
@@ -471,6 +510,7 @@ return array(
                 ),
                 'injections' => array(
                     'zfphpcrodm-dmhelper',
+                    'zfphpcrodm-jackrabbithelper',
                 ),
             ),
             
@@ -478,6 +518,13 @@ return array(
                 'parameters' => array(
                     'session' => null,
                     'dm' => 'zfphpcrodm-documentmanager',
+                ),
+            ),
+            
+            'zfphpcrodm-jackrabbithelper' => array(
+                'parameters' => array(
+                    'jackrabbit_jar' => realpath(__DIR__ . '/../bin/jackrabbit.jar'),
+                    'workspace_dir'  => realpath(__DIR__ . '/../../data'),
                 ),
             ),
             
