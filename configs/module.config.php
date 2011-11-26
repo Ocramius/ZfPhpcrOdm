@@ -106,6 +106,8 @@ return array(
                 'zfphpcrodm-cli-registernodetypes'      => 'PHPCR\Util\Console\Command\RegisterNodeTypesCommand',
                 'zfphpcrodm-cli-sql2'                   => 'PHPCR\Util\Console\Command\Sql2Command',
                 'zfphpcrodm-cli-registersystemnodetypes'=> 'Doctrine\ODM\PHPCR\Tools\Console\Command\RegisterSystemNodeTypesCommand',
+                'zfphpcrodm-cli-jackrabbit'             => 'Jackalope\Tools\Console\Command\JackrabbitCommand',
+                'zfphpcrodm-cli-initdoctrinedbal'       => 'Jackalope\Tools\Console\Command\InitDoctrineDbalCommand',
                 
             ),
             
@@ -153,6 +155,8 @@ return array(
                     'zfphpcrodm-cli-registernodetypes',
                     'zfphpcrodm-cli-sql2',
                     'zfphpcrodm-cli-registersystemnodetypes',
+                    'zfphpcrodm-cli-jackrabbit',
+                    'zfphpcrodm-cli-initdoctrinedbal',
                 ),
             ),
             
