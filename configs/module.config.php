@@ -25,6 +25,68 @@ return array(
                         ),
                     ),
                 ),
+                'Doctrine\ODM\PHPCR\Configuration' => array(
+                    'methods' => array(
+                        'setValidateDoctrineMetadata' => array(
+                            'validateDoctrineMetadata' => array(
+                                'type' => false,
+                                'required' => true,
+                            ),
+                        ),
+                        'setWriteDoctrineMetadata' => array(
+                            'writeDoctrineMetadata' => array(
+                                'type' => false,
+                                'required' => true,
+                            ),
+                        ),
+                        'addDocumentNamespace' => array(
+                            'alias' => array(
+                                'type' => false,
+                                'required' => true,
+                            ),
+                            'namespace' => array(
+                                'type' => false,
+                                'required' => true,
+                            ),
+                        ),
+                        'setDocumentNamespaces' => array(
+                            'documentNamespaces' => array(
+                                'type' => false,
+                                'required' => true,
+                            ),
+                        ),
+                        'setMetadataDriverImpl' => array(
+                            'metadataDriverImpl' => array(
+                                'type' => 'Doctrine\ODM\PHPCR\Mapping\Driver\Driver',
+                                'required' => true,
+                            ),
+                        ),
+                        'setDocumentClassMapper' => array(
+                            'documentClassMapper' => array(
+                                'type' => 'Doctrine\ODM\PHPCR\DocumentClassMapperInterface',
+                                'required' => true,
+                            ),
+                        ),
+                        'setProxyDir' => array(
+                            'proxyDir' => array(
+                                'type' => false,
+                                'required' => true,
+                            ),
+                        ),
+                        'setProxyNamespace' => array(
+                            'proxyNamespace' => array(
+                                'type' => false,
+                                'required' => true,
+                            ),
+                        ),
+                        'setAutoGenerateProxyClasses' => array(
+                            'autoGenerateProxyClasses' => array(
+                                'type' => false,
+                                'required' => true,
+                            ),
+                        ),
+                    ),
+                ),
                 'PHPCR\SessionInterface' => array(
                     'instantiator' => array(
                         'ZfPhpcrOdm\SessionFactory',
@@ -92,7 +154,6 @@ return array(
                 
                 //config
                 'zfphpcrodm-configuration'              => 'Doctrine\ODM\PHPCR\Configuration',
-                'zfphpcrodm-metadatacache'              => 'Doctrine\Common\Cache\ArrayCache',
                 
                 //event manager
                 'zfphpcrodm-eventmanager'               => 'Doctrine\Common\EventManager',
@@ -131,9 +192,11 @@ return array(
                 ),
             ),
             
-            'zfphpcrodm-metadatacache' => array(
+            'zfphpcrodm-configuration' => array(
                 'parameters' => array(
-                    'namespace' => 'zfphpcrodm_metadatacache',
+                    'metadataDriverImpl' => 'zfphpcrodm-metadatadriver',
+                    'proxyNamespace' => 'ZfPhpcrOdmSample\Proxy',
+                    'proxyDir' => __DIR__ . '/../src/ZfPhpcrOdmSample/Proxy',
                 ),
             ),
             
