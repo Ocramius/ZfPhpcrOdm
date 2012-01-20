@@ -353,6 +353,10 @@ return array(
                 
             ),
             
+            'preference' => array(
+                'Doctrine\ODM\PHPCR\DocumentManager' => 'zfphpcrodm-documentmanager',
+            ),
+            
             //documentmanager
             'zfphpcrodm-documentmanager' => array(
                 'parameters' => array(

@@ -2,7 +2,7 @@
 namespace ZfPhpcrOdm\ODM\PHPCR\Mapping\Driver;
 
 use Doctrine\ODM\PHPCR\Mapping\Driver\Driver,
-    Doctrine\ODM\PHPCR\Mapping\ClassMetadata,
+    Doctrine\Common\Persistence\Mapping\ClassMetadata,
     Doctrine\ODM\PHPCR\Mapping\MappingException;
 
 /**
@@ -42,7 +42,7 @@ class DriverChain implements Driver {
      * Loads the metadata for the specified class into the provided container.
      * 
      * @param string $className
-     * @param ClassMetadataInfo $metadata
+     * @param ClassMetadata $metadata
      */
     public function loadMetadataForClass($className, ClassMetadata $metadata)
     {

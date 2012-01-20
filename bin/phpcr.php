@@ -1,39 +1,20 @@
 <?php
-use Zend\Loader\AutoloaderFactory,
-    Zend\Config\Config,
-    Zend\Loader\ModuleAutoloader,
-    Zend\Module\Manager as ModuleManager,
-    Zend\Module\Listener\ListenerOptions,
-    Zend\Mvc\Bootstrap,
-    Zend\Mvc\Application;
+chdir(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..');
+require_once (getenv('ZF2_PATH') ?: 'vendor/ZendFramework/library') . '/Zend/Loader/AutoloaderFactory.php';
+Zend\Loader\AutoloaderFactory::factory(array('Zend\Loader\StandardAutoloader' => array()));
 
-ini_set('display_errors', true);
-error_reporting(-1);
+$appConfig = include 'config/application.config.php';
 
-defined('APPLICATION_ENV') || define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'production'));
-set_include_path(implode(PATH_SEPARATOR, array(
-    realpath(__DIR__ . '/../../../vendor'),
-    realpath(__DIR__ . '/../../../vendor/ZendFramework/library'),
-    get_include_path(),
-)));
+$listenerOptions  = new Zend\Module\Listener\ListenerOptions($appConfig['module_listener_options']);
+$defaultListeners = new Zend\Module\Listener\DefaultListenerAggregate($listenerOptions);
+$defaultListeners->getConfigListener()->addConfigGlobPath('config/autoload/*.config.php');
 
-require_once 'Zend/Loader/AutoloaderFactory.php';
-AutoloaderFactory::factory(array('Zend\Loader\StandardAutoloader' => array()));
-
-$appConfig = include __DIR__ . '/../../../config/application.config.php';
-
-$moduleLoader = new ModuleAutoloader($appConfig['module_paths']);
-$moduleLoader->register();
-
-$moduleManager = new ModuleManager($appConfig['modules']);
-$listenerOptions = new ListenerOptions($appConfig['module_listener_options']);
-$moduleManager->setDefaultListenerOptions($listenerOptions);
+$moduleManager = new Zend\Module\Manager($appConfig['modules']);
+$moduleManager->events()->attachAggregate($defaultListeners);
 $moduleManager->loadModules();
 
-$bootstrap      = new Bootstrap($moduleManager->getMergedConfig());
-$application    = new Application();
+// Create application, bootstrap, and run
+$bootstrap   = new Zend\Mvc\Bootstrap($defaultListeners->getConfigListener()->getMergedConfig());
+$application = new Zend\Mvc\Application;
 $bootstrap->bootstrap($application);
-$application
-    ->getLocator()
-    ->get('zfphpcrodm-cli')
-    ->run();
+$application->getLocator()->get('zfphpcrodm-cli')->run();
