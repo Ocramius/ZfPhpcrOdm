@@ -10,6 +10,7 @@ Zend\Loader\AutoloaderFactory::factory(array(
             'Jackalope'                 => __DIR__ . '/library/doctrine-phpcr-odm/lib/vendor/jackalope/src/Jackalope',
             'PHPCR\Util'                => __DIR__ . '/library/doctrine-phpcr-odm/lib/vendor/jackalope/lib/phpcr-utils/src/PHPCR/Util',
             'PHPCR'                     => __DIR__ . '/library/doctrine-phpcr-odm/lib/vendor/jackalope/lib/phpcr/src/PHPCR',
+            'Midgard\PHPCR'             => __DIR__ . '/library/doctrine-phpcr-odm/lib/vendor/Midgard/PHPCR/src/Midgard/PHPCR',
             'Symfony\Component\Yaml'    => __DIR__ . '/library/doctrine-phpcr-odm/lib/vendor/Symfony/Component/Yaml',
             'Symfony\Component\Console' => __DIR__ . '/library/doctrine-phpcr-odm/lib/vendor/jackalope/lib/phpcr-utils/lib/vendor/Symfony/Component/Console',
         ),
