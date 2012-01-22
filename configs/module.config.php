@@ -139,6 +139,22 @@ return array(
                         ),
                     ),
                 ),
+                'Midgard\PHPCR\Repository' => array(
+                    'instantiator' => array(
+                        'Midgard\PHPCR\RepositoryFactory',
+                        'getRepository',
+                    ),
+                ),
+                'Midgard\PHPCR\RepositoryFactory' => array(
+                    'methods' => array(
+                        'getRepository' => array(
+                            'parameters' => array(
+                                'type' => false,
+                                'required' => false,
+                            ),
+                        ),
+                    ),
+                ),
                 'Jackalope\Transport\Jackrabbit\Client' => array(
                     'methods' => array(
                         '__construct' => array(
@@ -312,7 +328,8 @@ return array(
                 'zfphpcrodm-credentials'                => 'PHPCR\SimpleCredentials',
                 
                 //repository
-                'zfphpcrodm-repository'                 => 'Jackalope\Repository',
+                'zfphpcrodm-midgard-repository'         => 'Midgard\PHPCR\Repository',
+                'zfphpcrodm-jackrabbit-repository'      => 'Jackalope\Repository',
                 'zfphpcrodm-jackrabbittransport'        => 'Jackalope\Transport\Jackrabbit\Client',
                 'zfphpcrodm-dbaltransport'              => 'Jackalope\Transport\DoctrineDBAL\Client',
                 'zfphpcrodm-jackalopefactory'           => 'Jackalope\Factory',
@@ -377,7 +394,9 @@ return array(
             //session
             'zfphpcrodm-session' => array(
                 'parameters' => array(
-                    'repository' => 'zfphpcrodm-repository',
+                    //uncomment if you want to use midgard
+                    //'repository' => 'zfphpcrodm-midgard-repository',
+                    'repository' => 'zfphpcrodm-jackrabbit-repository',
                     'credentials' => 'zfphpcrodm-credentials',
                     'workspace' => 'default',
                 ),
@@ -390,7 +409,21 @@ return array(
                 ),
             ),
             
-            'zfphpcrodm-repository' => array(
+            'zfphpcrodm-midgard-repository' => array(
+                'parameters' => array(
+                    'parameters' => array(
+                        'midgard2.configuration.db.type' => 'MySQL',
+                        'midgard2.configuration.db.name' => 'test',
+                        'midgard2.configuration.db.host' => 'localhost',
+                        'midgard2.configuration.db.username' => 'root',
+                        'midgard2.configuration.db.password' => '',
+                        'midgard2.configuration.blobdir' => __DIR__ . '/../../../data/Midgard/blob',
+                        'midgard2.configuration.db.init' => true
+                    ),
+                ),
+            ),
+            
+            'zfphpcrodm-jackrabbit-repository' => array(
                 'parameters' => array(
                     'factory' => 'zfphpcrodm-jackalopefactory',
                     'transport' => 'zfphpcrodm-jackrabbittransport',
