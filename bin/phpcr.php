@@ -1,7 +1,22 @@
 <?php
-chdir(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..');
+ini_set('display_errors', true);
+chdir(__DIR__);
+
+$previousDir = '.';
+while (!file_exists('config/application.config.php')) {
+    $dir = dirname(getcwd());
+    if($previousDir === $dir) {
+        throw new RuntimeException(
+            'Unable to locate "config/application.config.php":'
+                . ' is DoctrineModule in a subdir of your application skeleton?'
+        );
+    }
+    $previousDir = $dir;
+    chdir($dir);
+}
+
 require_once (getenv('ZF2_PATH') ?: 'vendor/ZendFramework/library') . '/Zend/Loader/AutoloaderFactory.php';
-Zend\Loader\AutoloaderFactory::factory(array('Zend\Loader\StandardAutoloader' => array()));
+Zend\Loader\AutoloaderFactory::factory();
 
 $appConfig = include 'config/application.config.php';
 
