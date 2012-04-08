@@ -316,64 +316,64 @@ return array(
             ),
         ),
         'instance' => array(
-            
+
             'alias' => array(
-                
+
                 //document manager
-                'zfphpcrodm-documentmanager'            => 'Doctrine\ODM\PHPCR\DocumentManager',
-                
-                
+                'zfphpcrodm-documentmanager' => 'Doctrine\ODM\PHPCR\DocumentManager',
+
+
                 //session
-                'zfphpcrodm-session'                    => 'PHPCR\SessionInterface',
-                'zfphpcrodm-credentials'                => 'PHPCR\SimpleCredentials',
-                
+                'zfphpcrodm-session' => 'PHPCR\SessionInterface',
+                'zfphpcrodm-credentials' => 'PHPCR\SimpleCredentials',
+
                 //repository
-                'zfphpcrodm-midgard-repository'         => 'Midgard\PHPCR\Repository',
-                'zfphpcrodm-jackrabbit-repository'      => 'Jackalope\Repository',
-                'zfphpcrodm-jackrabbittransport'        => 'Jackalope\Transport\Jackrabbit\Client',
-                'zfphpcrodm-dbaltransport'              => 'Jackalope\Transport\DoctrineDBAL\Client',
-                'zfphpcrodm-jackalopefactory'           => 'Jackalope\Factory',
-                'zfphpcrodm-dbalconnection'             => 'Doctrine\DBAL\Connection',
-                'zfphpcrodm-dbaltransportcache'         => 'Doctrine\Common\Cache\ArrayCache',
-                'zfphpcrodm-dbalconfiguration'          => 'Doctrine\DBAL\Configuration',
-                'zfphpcrodm-dbalresultcache'            => 'Doctrine\Common\Cache\ArrayCache',
-                
+                'zfphpcrodm-midgard-repository' => 'Midgard\PHPCR\Repository',
+                'zfphpcrodm-jackrabbit-repository' => 'Jackalope\Repository',
+                'zfphpcrodm-jackrabbittransport' => 'Jackalope\Transport\Jackrabbit\Client',
+                'zfphpcrodm-dbaltransport' => 'Jackalope\Transport\DoctrineDBAL\Client',
+                'zfphpcrodm-jackalopefactory' => 'Jackalope\Factory',
+                'zfphpcrodm-dbalconnection' => 'Doctrine\DBAL\Connection',
+                'zfphpcrodm-dbaltransportcache' => 'Doctrine\Common\Cache\ArrayCache',
+                'zfphpcrodm-dbalconfiguration' => 'Doctrine\DBAL\Configuration',
+                'zfphpcrodm-dbalresultcache' => 'Doctrine\Common\Cache\ArrayCache',
+
                 //config
-                'zfphpcrodm-configuration'              => 'Doctrine\ODM\PHPCR\Configuration',
-                
+                'zfphpcrodm-configuration' => 'Doctrine\ODM\PHPCR\Configuration',
+
                 //event manager
-                'zfphpcrodm-eventmanager'               => 'Doctrine\Common\EventManager',
-                
+                'zfphpcrodm-eventmanager' => 'Doctrine\Common\EventManager',
+
                 //metadata
-                'zfphpcrodm-metadatadriver'             => 'ZfPhpcrOdm\ODM\PHPCR\Mapping\Driver\DriverChain',
-                'zfphpcrodm-annotationdriver'           => 'Doctrine\ODM\PHPCR\Mapping\Driver\AnnotationDriver',
-                'zfphpcrodm-cachedreader'               => 'Doctrine\Common\Annotations\CachedReader',
-                'zfphpcrodm-annotationcache'            => 'Doctrine\Common\Cache\ArrayCache',
-                'zfphpcrodm-indexedreader'              => 'Doctrine\Common\Annotations\IndexedReader',
-                'zfphpcrodm-annotationreader'           => 'Doctrine\Common\Annotations\AnnotationReader',
-                
+                'zfphpcrodm-metadatadriver' => 'ZfPhpcrOdm\ODM\PHPCR\Mapping\Driver\DriverChain',
+                'zfphpcrodm-annotationdriver' => 'Doctrine\ODM\PHPCR\Mapping\Driver\AnnotationDriver',
+                'zfphpcrodm-cachedreader' => 'Doctrine\Common\Annotations\CachedReader',
+                'zfphpcrodm-annotationcache' => 'Doctrine\Common\Cache\ArrayCache',
+                'zfphpcrodm-indexedreader' => 'Doctrine\Common\Annotations\IndexedReader',
+                'zfphpcrodm-annotationreader' => 'Doctrine\Common\Annotations\AnnotationReader',
+
                 //cli tools
-                'zfphpcrodm-cli'                        => 'Symfony\Component\Console\Application',
-                'zfphpcrodm-helperset'                  => 'Symfony\Component\Console\Helper\HelperSet',
-                'zfphpcrodm-dmhelper'                   => 'Doctrine\ODM\PHPCR\Tools\Console\Helper\DocumentManagerHelper',
-                'zfphpcrodm-jackrabbithelper'           => 'Jackalope\Tools\Console\Helper\JackrabbitHelper',
-                
+                'zfphpcrodm-cli' => 'Symfony\Component\Console\Application',
+                'zfphpcrodm-helperset' => 'Symfony\Component\Console\Helper\HelperSet',
+                'zfphpcrodm-dmhelper' => 'Doctrine\ODM\PHPCR\Tools\Console\Helper\DocumentManagerHelper',
+                'zfphpcrodm-jackrabbithelper' => 'Jackalope\Tools\Console\Helper\JackrabbitHelper',
+
                 //cli commands
-                'zfphpcrodm-cli-createworkspace'        => 'PHPCR\Util\Console\Command\CreateWorkspaceCommand',
-                'zfphpcrodm-cli-dump'                   => 'PHPCR\Util\Console\Command\DumpCommand',
-                'zfphpcrodm-cli-purge'                  => 'PHPCR\Util\Console\Command\PurgeCommand',
-                'zfphpcrodm-cli-registernodetypes'      => 'PHPCR\Util\Console\Command\RegisterNodeTypesCommand',
-                'zfphpcrodm-cli-sql2'                   => 'PHPCR\Util\Console\Command\Sql2Command',
-                'zfphpcrodm-cli-registersystemnodetypes'=> 'Doctrine\ODM\PHPCR\Tools\Console\Command\RegisterSystemNodeTypesCommand',
-                'zfphpcrodm-cli-jackrabbit'             => 'Jackalope\Tools\Console\Command\JackrabbitCommand',
-                'zfphpcrodm-cli-initdoctrinedbal'       => 'Jackalope\Tools\Console\Command\InitDoctrineDbalCommand',
-                
+                'zfphpcrodm-cli-createworkspace' => 'PHPCR\Util\Console\Command\CreateWorkspaceCommand',
+                'zfphpcrodm-cli-dump' => 'PHPCR\Util\Console\Command\DumpCommand',
+                'zfphpcrodm-cli-purge' => 'PHPCR\Util\Console\Command\PurgeCommand',
+                'zfphpcrodm-cli-registernodetypes' => 'PHPCR\Util\Console\Command\RegisterNodeTypesCommand',
+                'zfphpcrodm-cli-sql2' => 'PHPCR\Util\Console\Command\Sql2Command',
+                'zfphpcrodm-cli-registersystemnodetypes' => 'Doctrine\ODM\PHPCR\Tools\Console\Command\RegisterSystemNodeTypesCommand',
+                'zfphpcrodm-cli-jackrabbit' => 'Jackalope\Tools\Console\Command\JackrabbitCommand',
+                'zfphpcrodm-cli-initdoctrinedbal' => 'Jackalope\Tools\Console\Command\InitDoctrineDbalCommand',
+
             ),
-            
+
             'preference' => array(
                 'Doctrine\ODM\PHPCR\DocumentManager' => 'zfphpcrodm-documentmanager',
             ),
-            
+
             //documentmanager
             'zfphpcrodm-documentmanager' => array(
                 'parameters' => array(
@@ -382,7 +382,7 @@ return array(
                     'eventManager' => 'zfphpcrodm-eventmanager',
                 ),
             ),
-            
+
             'zfphpcrodm-configuration' => array(
                 'parameters' => array(
                     'metadataDriverImpl' => 'zfphpcrodm-metadatadriver',
@@ -390,7 +390,7 @@ return array(
                     'proxyDir' => __DIR__ . '/../src/ZfPhpcrOdmSample/Proxy',
                 ),
             ),
-            
+
             //session
             'zfphpcrodm-session' => array(
                 'parameters' => array(
@@ -401,14 +401,14 @@ return array(
                     'workspace' => 'default',
                 ),
             ),
-            
+
             'zfphpcrodm-credentials' => array(
                 'parameters' => array(
                     'userID' => 'admin',
                     'password' => 'admin',
                 ),
             ),
-            
+
             'zfphpcrodm-midgard-repository' => array(
                 'parameters' => array(
                     'parameters' => array(
@@ -422,7 +422,7 @@ return array(
                     ),
                 ),
             ),
-            
+
             'zfphpcrodm-jackrabbit-repository' => array(
                 'parameters' => array(
                     'factory' => 'zfphpcrodm-jackalopefactory',
@@ -434,7 +434,7 @@ return array(
                     ),
                 ),
             ),
-            
+
             'zfphpcrodm-jackrabbittransport' => array(
                 'parameters' => array(
                     'factory' => 'zfphpcrodm-jackalopefactory',
@@ -443,7 +443,7 @@ return array(
                     'expect' => false,
                 ),
             ),
-            
+
             'zfphpcrodm-dbaltransport' => array(
                 'parameters' => array(
                     'factory' => 'zfphpcrodm-jackalopefactory',
@@ -453,46 +453,46 @@ return array(
                     'checkLoginOnServer' => false,
                 ),
             ),
-            
+
             'zfphpcrodm-dbaltransportcache' => array(
                 'parameters' => array(
                     'namespace' => 'zfphpcrodm_dbaltransportcache',
                 ),
             ),
-            
+
             'zfphpcrodm-dbalconnection' => array(
                 'parameters' => array(
                     'params' => array(
-                        'driver'   => 'pdo_mysql',
-                        'host'     => 'localhost',
-                        'user'     => 'root',
+                        'driver' => 'pdo_mysql',
+                        'host' => 'localhost',
+                        'user' => 'root',
                         'password' => '',
-                        'dbname'   => 'test',
+                        'dbname' => 'test',
                     ),
                     'config' => 'zfphpcrodm-dbalconfiguration',
                     'eventManager' => 'zfphpcrodm-eventmanager',
                 ),
             ),
-            
+
             'zfphpcrodm-dbalconfiguration' => array(
                 'parameters' => array(
                     'cacheImpl' => 'zfphpcrodm-dbalresultcache',
                 ),
             ),
-            
+
             'zfphpcrodm-dbalresultcache' => array(
                 'parameters' => array(
                     'namespace' => 'zfphpcrodm_dbalresultcache',
                 ),
             ),
-            
+
             //metadata
             'zfphpcrodm-metadatadriver' => array(
                 'injections' => array(
                     'zfphpcrodm-annotationdriver',
                 ),
             ),
-            
+
             'zfphpcrodm-annotationdriver' => array(
                 'parameters' => array(
                     'reader' => 'zfphpcrodm-cachedreader',
@@ -501,35 +501,35 @@ return array(
                     ),
                 ),
             ),
-            
+
             'zfphpcrodm-cachedreader' => array(
                 'parameters' => array(
                     'reader' => 'zfphpcrodm-indexedreader',
                     'cache' => 'zfphpcrodm-annotationcache',
                 ),
             ),
-            
+
             'zfphpcrodm-annotationcache' => array(
                 'parameters' => array(
                     'namespace' => 'zfphpcrodm_annotation',
                 ),
             ),
-            
+
             'zfphpcrodm-indexedreader' => array(
                 'parameters' => array(
                     'reader' => 'zfphpcrodm-annotationreader',
                 ),
             ),
-            
+
             //cli
             'zfphpcrodm-cli' => array(
                 'parameters' => array(
-                    'name'      => 'ZfPhpcrOdm Module\'s CLI tools running on Doctrine PHPCR ODM V' . \Doctrine\ODM\PHPCR\Version::VERSION,
-                    'version'   => \ZfPhpcrOdm\Version::VERSION,
+                    'name' => 'ZfPhpcrOdm Module\'s CLI tools running on Doctrine PHPCR ODM dev-master',
+                    'version' => 'dev-master',
                 ),
                 'injections' => array(
                     'zfphpcrodm-helperset',
-                    
+
                     'zfphpcrodm-cli-createworkspace',
                     'zfphpcrodm-cli-dump',
                     'zfphpcrodm-cli-purge',
@@ -540,7 +540,7 @@ return array(
                     'zfphpcrodm-cli-initdoctrinedbal',
                 ),
             ),
-            
+
             'zfphpcrodm-helperset' => array(
                 'parameters' => array(
                     'helpers' => array(),
@@ -550,21 +550,21 @@ return array(
                     'zfphpcrodm-jackrabbithelper',
                 ),
             ),
-            
+
             'zfphpcrodm-dmhelper' => array(
                 'parameters' => array(
                     'session' => null,
                     'dm' => 'zfphpcrodm-documentmanager',
                 ),
             ),
-            
+
             'zfphpcrodm-jackrabbithelper' => array(
                 'parameters' => array(
                     'jackrabbit_jar' => realpath(__DIR__ . '/../bin/jackrabbit.jar'),
-                    'workspace_dir'  => realpath(__DIR__ . '/../../data'),
+                    'workspace_dir' => realpath(__DIR__ . '/../../data'),
                 ),
             ),
-            
+
         ),
     ),
 );
