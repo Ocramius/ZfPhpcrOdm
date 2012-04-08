@@ -12,14 +12,14 @@ use PHPCR\SessionInterface as Session,
  * @package    ZfPhpcrOdm\SessionFactory
  * @author     Marco Pivetta <ocramius@gmail.com>
  */
-abstract class SessionFactory {
-    
+abstract class SessionFactory
+{
     /**
      *
      * @param Repository $repository
      * @param Credentials $credentials
      * @param string $workspace
-     * @return Session 
+     * @return Session
      */
     public static function getSession(
         Repository $repository,
@@ -28,5 +28,5 @@ abstract class SessionFactory {
     ) {
         return $repository->login($credentials, $workspace);
     }
-    
+
 }

@@ -1,23 +1,23 @@
 <?php
 namespace ZfPhpcrOdm\ODM\PHPCR\Mapping\Driver;
 
-use Doctrine\ODM\PHPCR\Mapping\Driver\Driver,
-    Doctrine\Common\Persistence\Mapping\ClassMetadata,
-    Doctrine\ODM\PHPCR\Mapping\MappingException;
+use Doctrine\Common\Persistence\Mapping\Driver\MappingDriver as Driver;
+use Doctrine\Common\Persistence\Mapping\ClassMetadata;
+use Doctrine\ODM\PHPCR\Mapping\MappingException;
 
 /**
  * Provides Zend\Di compatible injection of chained drivers
  * This is a workaround for a behaviour that is unsupported by Zend\Di
- * 
+ *
  * @author Marco Pivetta <ocramius@gmail.com>
  */
-class DriverChain implements Driver {
-    
+class DriverChain implements Driver
+{
     /**
      * @var array
      */
     private $_drivers = array();
-    
+
     /**
      * Add a nested driver.
      *
@@ -40,7 +40,7 @@ class DriverChain implements Driver {
 
     /**
      * Loads the metadata for the specified class into the provided container.
-     * 
+     *
      * @param string $className
      * @param ClassMetadata $metadata
      */
@@ -50,13 +50,13 @@ class DriverChain implements Driver {
             $driver->loadMetadataForClass($className, $metadata);
             return;
         }
-        
+
         throw MappingException::classIsNotAValidDocument($className);
     }
 
     /**
      * Gets the names of all mapped classes known to this driver.
-     * 
+     *
      * @return array The names of all mapped classes known to this driver.
      */
     public function getAllClassNames()
@@ -68,7 +68,7 @@ class DriverChain implements Driver {
             if (!isset($driverClasses[$oid])) {
                 $driverClasses[$oid] = $driver->getAllClassNames();
             }
-            
+
             foreach ($driverClasses[$oid] as $className) {
                 $classNames[$className] = true;
             }
@@ -87,13 +87,13 @@ class DriverChain implements Driver {
     public function isTransient($className)
     {
         foreach ($this->_drivers as $driver) {
-            if(!$driver->isTransient($className)) {
+            if (!$driver->isTransient($className)) {
                 return false;
             }
         }
-        
+
         // class isTransient, i.e. not an entity or mapped superclass
         return true;
     }
-    
+
 }

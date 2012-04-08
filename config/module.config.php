@@ -57,7 +57,7 @@ return array(
                         ),
                         'setMetadataDriverImpl' => array(
                             'metadataDriverImpl' => array(
-                                'type' => 'Doctrine\ODM\PHPCR\Mapping\Driver\Driver',
+                                'type' => 'Doctrine\Common\Persistence\Mapping\Driver\MappingDriver',
                                 'required' => true,
                             ),
                         ),
@@ -255,6 +255,7 @@ return array(
                         ),
                     ),
                 ),
+
                 'Symfony\Component\Console\Application' => array(
                     'methods' => array(
                         'add' => array(
@@ -318,10 +319,8 @@ return array(
         'instance' => array(
 
             'alias' => array(
-
                 //document manager
                 'zfphpcrodm-documentmanager' => 'Doctrine\ODM\PHPCR\DocumentManager',
-
 
                 //session
                 'zfphpcrodm-session' => 'PHPCR\SessionInterface',
