@@ -91,7 +91,7 @@ return array(
                     'methods' => array(
                         'addDriver' => array(
                             'nestedDriver' => array(
-                                'type' => 'Doctrine\ODM\PHPCR\Mapping\Driver\Driver',
+                                'type' => 'Doctrine\Common\Persistence\Mapping\Driver\MappingDriver',
                                 'required' => true,
                             ),
                         ),
