@@ -9,21 +9,18 @@ use Doctrine\Common\Annotations\AnnotationRegistry;
  */
 class Module
 {
-    public function init()
+    public function init(Manager $moduleManager)
     {
-        $this->initAutoloader();
+        $moduleManager->events()->attach('loadModules.post', array($this, 'modulesLoaded'));
+    }
+
+    public function modulesLoaded()
+    {
         // Trying to load DoctrineAnnotations.php without knowing its location
         $annotationReflection = new \ReflectionClass('Doctrine\ODM\PHPCR\Mapping\ClassMetadata');
         AnnotationRegistry::registerFile(
             dirname($annotationReflection->getFileName()) . '/Annotations/DoctrineAnnotations.php'
         );
-    }
-
-    public function initAutoloader()
-    {
-        file_exists(__DIR__ . '/vendor/.composer/autoload.php')
-            && require_once __DIR__ . '/vendor/.composer/autoload.php';
-        //require __DIR__ . '/autoload_register.php';
     }
 
     /**
