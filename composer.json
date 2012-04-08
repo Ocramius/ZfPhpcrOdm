@@ -1,5 +1,5 @@
 {
-    "name": "doctrine/ZfPhpcrOdm",
+    "name": "ocramius/ZfPhpcrOdm",
     "description": "Zend Framework 2 Module that provides Doctrine PHPCR ODM functionality",
     "type": "library",
     "keywords": [
