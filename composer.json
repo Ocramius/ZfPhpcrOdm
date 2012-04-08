@@ -19,6 +19,7 @@
     ],
     "require": {
         "php": ">=5.3.3",
+        "ocramius/OcraComposer": "dev-master",
         "doctrine/phpcr-odm": "dev-master",
         "doctrine/DoctrineModule": "dev-master"
     },
