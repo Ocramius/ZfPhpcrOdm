@@ -2,6 +2,7 @@
 namespace ZfPhpcrOdm;
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
+use Zend\Module\Manager;
 
 /**
  *
