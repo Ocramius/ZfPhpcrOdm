@@ -21,6 +21,9 @@
         "php": ">=5.3.3",
         "ocramius/OcraComposer": "dev-master",
         "doctrine/phpcr-odm": "dev-master",
+        "jackalope/jackalope-jackrabbit": "dev-master",
+        "jackalope/jackalope-doctrine-dbal": "dev-master",
+        "midgard/phpcr": "dev-master",
         "doctrine/DoctrineModule": "dev-master"
     },
 
