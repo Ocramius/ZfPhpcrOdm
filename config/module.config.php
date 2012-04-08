@@ -437,7 +437,7 @@ return array(
             'zfphpcrodm-jackrabbittransport' => array(
                 'parameters' => array(
                     'factory' => 'zfphpcrodm-jackalopefactory',
-                    'serverUri' => 'http://127.0.0.1:8888/server/',
+                    'serverUri' => 'http://127.0.0.1:8080/server/',
                     'checkLoginOnServer' => false,
                     'expect' => false,
                 ),
