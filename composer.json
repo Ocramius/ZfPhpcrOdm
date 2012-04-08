@@ -1,0 +1,38 @@
+{
+    "name": "doctrine/ZfPhpcrOdm",
+    "description": "Zend Framework 2 Module that provides Doctrine PHPCR ODM functionality",
+    "type": "library",
+    "keywords": [
+        "doctrine",
+        "module",
+        "zf2",
+        "odm",
+        "phpcr"
+    ],
+    "homepage": "http://www.doctrine-project.org/",
+    "authors": [
+        {
+            "name": "Marco Pivetta",
+            "email": "ocramius@gmail.com",
+            "homepage": "http://marco-pivetta.com/"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "ocramius/OcraComposer": "dev-master",
+        "doctrine/phpcr-odm": "dev-master",
+        "doctrine/DoctrineModule": "dev-master"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "ZfPhpcrOdm": "src/"
+        },
+        "classmap": [
+            "./"
+        ]
+    },
+    "config": {
+        "bin-dir": "bin"
+    }
+}
