@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Zfphpcrodm : Doctrine PHPCR ODM Zend Framework 2 Module" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Zfphpcrodm</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/Ocramius/ZfPhpcrOdm">Fork Me on GitHub</a>
+
+          <h1 id="project_title">Zfphpcrodm</h1>
+          <h2 id="project_tagline">Doctrine PHPCR ODM Zend Framework 2 Module</h2>
+
+          <section id="downloads">
+            <a class="zip_download_link" href="https://github.com/Ocramius/ZfPhpcrOdm/zipball/master">Download this project as a .zip file</a>
+            <a class="tar_download_link" href="https://github.com/Ocramius/ZfPhpcrOdm/tarball/master">Download this project as a tar.gz file</a>
+          </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>ZfPhpcrOdm - Zend Framework 2 module for Doctrine PHPCR ODM</h1>
+
+<p>This Module provides functionality to connect Zend Framework 2 ( <a href="http://packages.zendframework.com/">http://packages.zendframework.com/</a> ) and Doctrine PHPCR ODM ( <a href="https://github.com/doctrine/phpcr-odm">https://github.com/doctrine/phpcr-odm</a> ). The module provides configuration and dependencies for Jackrabbit, Doctrine DBAL DBAL and Midgard 2 JCR backends.</p>
+
+<h2>Installation</h2>
+
+<div class="highlight">
+<pre><span class="nv">$ </span><span class="nb">cd </span>path/to/your/zf/application
+</pre>
+</div>
+
+
+<p>Then create a <code>composer.json</code> file like following:</p>
+
+<div class="highlight">
+<pre><span class="p">{</span>
+    <span class="nt">"require"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">"ocramius/ZfPhpcrOdm"</span><span class="p">:</span> <span class="s2">"dev-master"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+
+<p>Then run composer installation:</p>
+
+<div class="highlight">
+<pre><span class="nv">$ </span>curl -s <a href="http://getcomposer.org/installer">http://getcomposer.org/installer</a> | php
+<span class="nv">$ </span>php composer.phar install
+</pre>
+</div>
+
+
+<p>Then add <code>ZfPhpcrOdm</code> to your loaded modules and <code>vendor/ocramius</code> to your <code>module_paths</code> in <code>config/application.config.php</code>.</p>
+
+<p>Done! You can now use a <code>Doctrine\ODM\PHPCR\DocumentManager</code> instance in your project. Don't forget to read the docs about PHPCR ODM!</p>
+
+<h3>Support or Contact</h3>
+
+<p>Got any troubles? Drop me an email at ocramius@gmail.com, or contact me on irc://irc.freenode.net#zftalk.2 , nickname <code>ocramius</code> :)</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Zfphpcrodm maintained by <a href="https://github.com/Ocramius">Ocramius</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
