@@ -23,10 +23,11 @@
         "doctrine/phpcr-odm": "dev-master",
         "jackalope/jackalope-jackrabbit": "dev-master",
         "jackalope/jackalope-doctrine-dbal": "dev-master",
-        "midgard/phpcr": "dev-master",
         "doctrine/doctrine-module": "dev-master"
     },
-
+    "suggest": {
+        "midgard/phpcr": "Midgard2 adapter for PHPCR if you want to use midgard instead of dbal or jackrabbit"
+    },
     "autoload": {
         "psr-0": {
             "ZfPhpcrOdm": "src/"
