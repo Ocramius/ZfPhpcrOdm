@@ -34,9 +34,6 @@
             "ZfPhpcrOdm": "src/"
         }
     },
-    "config": {
-        "bin-dir": "bin"
-    },
     "replace": {
         "ocramius/ZfPhpcrOdm": "self.version"
     }

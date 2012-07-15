@@ -255,37 +255,6 @@ return array(
                         ),
                     ),
                 ),
-
-                'Symfony\Component\Console\Application' => array(
-                    'methods' => array(
-                        'add' => array(
-                            'command' => array(
-                                'type' => 'Symfony\Component\Console\Command\Command',
-                                'required' => true
-                            ),
-                        ),
-                    ),
-                ),
-                'Symfony\Component\Console\Helper\HelperSet' => array(
-                    'methods' => array(
-                        'set' => array(
-                            'helper' => array(
-                                'type' => 'Symfony\Component\Console\Helper\HelperInterface',
-                                'required' => true,
-                            ),
-                            'alias' => array(
-                                'type' => false,
-                                'required' => false,
-                            ),
-                        ),
-                        'setCommand' => array(
-                            'command' => array(
-                                'type' => 'Symfony\Component\Console\Command\Command',
-                                'required' => false,
-                            ),
-                        ),
-                    ),
-                ),
                 'Doctrine\ODM\PHPCR\Tools\Console\Helper\DocumentManagerHelper' => array(
                     'methods' => array(
                         '__construct' => array(
@@ -349,21 +318,8 @@ return array(
                 'zfphpcrodm-annotationreader' => 'Doctrine\Common\Annotations\AnnotationReader',
 
                 //cli tools
-                'zfphpcrodm-cli' => 'Symfony\Component\Console\Application',
-                'zfphpcrodm-helperset' => 'Symfony\Component\Console\Helper\HelperSet',
                 'zfphpcrodm-dmhelper' => 'Doctrine\ODM\PHPCR\Tools\Console\Helper\DocumentManagerHelper',
                 'zfphpcrodm-jackrabbithelper' => 'Jackalope\Tools\Console\Helper\JackrabbitHelper',
-
-                //cli commands
-                'zfphpcrodm-cli-createworkspace' => 'PHPCR\Util\Console\Command\CreateWorkspaceCommand',
-                'zfphpcrodm-cli-dump' => 'PHPCR\Util\Console\Command\DumpCommand',
-                'zfphpcrodm-cli-purge' => 'PHPCR\Util\Console\Command\PurgeCommand',
-                'zfphpcrodm-cli-registernodetypes' => 'PHPCR\Util\Console\Command\RegisterNodeTypesCommand',
-                'zfphpcrodm-cli-sql2' => 'PHPCR\Util\Console\Command\Sql2Command',
-                'zfphpcrodm-cli-registersystemnodetypes' => 'Doctrine\ODM\PHPCR\Tools\Console\Command\RegisterSystemNodeTypesCommand',
-                'zfphpcrodm-cli-jackrabbit' => 'Jackalope\Tools\Console\Command\JackrabbitCommand',
-                'zfphpcrodm-cli-initdoctrinedbal' => 'Jackalope\Tools\Console\Command\InitDoctrineDbalCommand',
-
             ),
 
             //documentmanager
@@ -510,36 +466,6 @@ return array(
             'zfphpcrodm-indexedreader' => array(
                 'parameters' => array(
                     'reader' => 'zfphpcrodm-annotationreader',
-                ),
-            ),
-
-            //cli
-            'zfphpcrodm-cli' => array(
-                'parameters' => array(
-                    'name' => 'ZfPhpcrOdm Module\'s CLI tools running on Doctrine PHPCR ODM dev-master',
-                    'version' => 'dev-master',
-                ),
-                'injections' => array(
-                    'zfphpcrodm-helperset',
-
-                    'zfphpcrodm-cli-createworkspace',
-                    'zfphpcrodm-cli-dump',
-                    'zfphpcrodm-cli-purge',
-                    'zfphpcrodm-cli-registernodetypes',
-                    'zfphpcrodm-cli-sql2',
-                    'zfphpcrodm-cli-registersystemnodetypes',
-                    'zfphpcrodm-cli-jackrabbit',
-                    'zfphpcrodm-cli-initdoctrinedbal',
-                ),
-            ),
-
-            'zfphpcrodm-helperset' => array(
-                'parameters' => array(
-                    'helpers' => array(),
-                ),
-                'injections' => array(
-                    'zfphpcrodm-dmhelper',
-                    'zfphpcrodm-jackrabbithelper',
                 ),
             ),
 
