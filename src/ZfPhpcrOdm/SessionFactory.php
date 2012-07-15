@@ -15,10 +15,11 @@ use PHPCR\SessionInterface as Session,
 abstract class SessionFactory
 {
     /**
+     * Factory used to allow a method call to a repository instance in Zend\Di
      *
-     * @param Repository $repository
-     * @param Credentials $credentials
-     * @param string $workspace
+     * @param  Repository  $repository
+     * @param  Credentials $credentials
+     * @param  string      $workspace
      * @return Session
      */
     public static function getSession(

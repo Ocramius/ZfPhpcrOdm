@@ -26,15 +26,13 @@
         "doctrine/doctrine-module": "dev-master"
     },
     "suggest": {
-        "midgard/phpcr": "Midgard2 adapter for PHPCR if you want to use midgard instead of dbal or jackrabbit"
+        "midgard/phpcr": "Midgard2 adapter for PHPCR if you want to use midgard instead of dbal or jackrabbit",
+        "ocramius/ocra-di-compiler": "Since the module uses Zend\\Di extensively, consider compiling it with OcraDiCompiler"
     },
     "autoload": {
         "psr-0": {
             "ZfPhpcrOdm": "src/"
-        },
-        "classmap": [
-            "./"
-        ]
+        }
     },
     "config": {
         "bin-dir": "bin"

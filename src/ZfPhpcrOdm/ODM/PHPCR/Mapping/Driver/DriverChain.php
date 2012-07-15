@@ -41,13 +41,14 @@ class DriverChain implements Driver
     /**
      * Loads the metadata for the specified class into the provided container.
      *
-     * @param string $className
+     * @param string        $className
      * @param ClassMetadata $metadata
      */
     public function loadMetadataForClass($className, ClassMetadata $metadata)
     {
         foreach ($this->_drivers as $driver) {
             $driver->loadMetadataForClass($className, $metadata);
+
             return;
         }
 
@@ -73,6 +74,7 @@ class DriverChain implements Driver
                 $classNames[$className] = true;
             }
         }
+
         return array_keys($classNames);
     }
 
@@ -81,7 +83,7 @@ class DriverChain implements Driver
      *
      * This is only the case for non-transient classes either mapped as an Entity or MappedSuperclass.
      *
-     * @param string $className
+     * @param  string  $className
      * @return boolean
      */
     public function isTransient($className)

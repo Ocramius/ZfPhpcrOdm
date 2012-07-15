@@ -1,29 +1,32 @@
-README
-======
+# Zend Framework 2 to Doctrine PHPCR ODM integration
+## Overview
 
-This Module provides functionality to connect Zend Framework 2 ( http://packages.zendframework.com/ ) and Doctrine PHPCR-ODM ( https://github.com/doctrine/phpcr-odm ).
-The module provides configuration and dependencies for both Jackrabbit and DBAL JCR backends.
+This Module provides functionality to connect [Zend Framework 2](https://github.com/zendframework/zf2) and
+[Doctrine PHPCR-ODM](https://github.com/doctrine/phpcr-odm).
+It provides configuration and dependencies for both Jackrabbit and DBAL JCR backends, and allows usage with Midgard2 too.
 
-Dependencies
+## Requirements
 -------------
-This module uses Zend Framework 2 and Doctrine PHPCR-ODM.
-Doctrine PHPCR-ODM is required and provided as a git submodule, while a Zend Application skeleton () or similar structure should already be available.
 
-Setup
--------------
+The module runs on any typical [Zend Framework 2 Skeleton application](https://github.com/zendframework/ZendSkeletonApplication)
+setup.
+
+## Setup
 
 Following steps are necessary to get this project working (considering a zf2-skeleton or very similar application)
 
-  1. cd path/to/my/zf2application
-  2. git clone https://Ocramius@github.com/Ocramius/ZfPhpcrOdm.git modules/ZfPhpcrOdm --recursive
-  4. open path/to/my/zf2application/config/application.config.php and add 'ZfPhpcrOdm' to your 'modules' configuration key.
+  1. add `"ocramius/zf-phpcr-odm": "dev-master"` to your `composer.json` (`"minimum-stability": "dev"` is also required)
+  2. Add `DoctrineModule` and `ZfPhpcrOdm` to the enabled modules list
 
-Configuration
--------------
+## Usage
 
- * This section is still to be completed
+This module allows you to simply ask the default application's `ServiceLocator` for an instance of `Doctrine\ODM\PHPCR\DocumentManager`:
 
-Examples
--------------
+```php
+<?php
+$documentManager = $serviceLocator->get('Doctrine\ODM\PHPCR\DocumentManager');
+```
+
+## Examples
 
 Please refer to https://github.com/Ocramius/ZfPhpcrOdmSample to see a working example of this module being used.

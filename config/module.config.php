@@ -319,9 +319,6 @@ return array(
         'instance' => array(
 
             'alias' => array(
-                //document manager
-                'zfphpcrodm-documentmanager' => 'Doctrine\ODM\PHPCR\DocumentManager',
-
                 //session
                 'zfphpcrodm-session' => 'PHPCR\SessionInterface',
                 'zfphpcrodm-credentials' => 'PHPCR\SimpleCredentials',
@@ -369,12 +366,8 @@ return array(
 
             ),
 
-            'preference' => array(
-                'Doctrine\ODM\PHPCR\DocumentManager' => 'zfphpcrodm-documentmanager',
-            ),
-
             //documentmanager
-            'zfphpcrodm-documentmanager' => array(
+            'Doctrine\ODM\PHPCR\DocumentManager' => array(
                 'parameters' => array(
                     'session' => 'zfphpcrodm-session',
                     'config' => 'zfphpcrodm-configuration',
@@ -553,7 +546,7 @@ return array(
             'zfphpcrodm-dmhelper' => array(
                 'parameters' => array(
                     'session' => null,
-                    'dm' => 'zfphpcrodm-documentmanager',
+                    'dm' => 'Doctrine\ODM\PHPCR\DocumentManager',
                 ),
             ),
 
