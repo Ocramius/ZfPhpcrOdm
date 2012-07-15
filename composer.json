@@ -1,5 +1,6 @@
 {
-    "name": "ocramius/ZfPhpcrOdm",
+    "name": "ocramius/zf-phpcr-odm",
+    "license": "MIT",
     "description": "Zend Framework 2 Module that provides Doctrine PHPCR ODM functionality",
     "type": "library",
     "keywords": [
@@ -37,5 +38,8 @@
     },
     "config": {
         "bin-dir": "bin"
+    },
+    "replace": {
+        "ocramius/ZfPhpcrOdm": "self.version"
     }
 }
