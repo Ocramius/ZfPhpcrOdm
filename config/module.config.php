@@ -129,7 +129,7 @@ return array(
                                 'required' => true,
                             ),
                             'transport' => array(
-                                'type' => 'Jackalope\TransportInterface',
+                                'type' => 'Jackalope\Transport\TransportInterface',
                                 'required' => true,
                             ),
                             'options' => array(
