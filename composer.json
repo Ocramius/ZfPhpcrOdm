@@ -23,7 +23,7 @@
         "doctrine/phpcr-odm": "dev-master",
         "jackalope/jackalope-jackrabbit": "dev-master",
         "jackalope/jackalope-doctrine-dbal": "dev-master",
-        "doctrine/doctrine-module": "dev-master"
+        "doctrine/doctrine-module": ">=0.5.3"
     },
     "suggest": {
         "midgard/phpcr": "Midgard2 adapter for PHPCR if you want to use midgard instead of dbal or jackrabbit",

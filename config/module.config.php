@@ -334,8 +334,8 @@ return array(
             'zfphpcrodm-configuration' => array(
                 'parameters' => array(
                     'metadataDriverImpl' => 'zfphpcrodm-metadatadriver',
-                    'proxyNamespace' => 'ZfPhpcrOdmSample\Proxy',
-                    'proxyDir' => __DIR__ . '/../src/ZfPhpcrOdmSample/Proxy',
+                    'proxyNamespace' => 'ZfPhpcrOdm\Proxy',
+                    'proxyDir' => 'data/ZfPhpcrOdm/Proxy',
                 ),
             ),
 
