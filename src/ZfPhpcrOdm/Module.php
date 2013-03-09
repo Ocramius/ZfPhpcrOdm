@@ -31,9 +31,6 @@ class Module implements ConfigProviderInterface, BootstrapListenerInterface
         $app = $e->getTarget();
         $events = $app->getEventManager()->getSharedManager();
 
-        //Register the Doctrine Annotations
-        AnnotationRegistry::registerFile(__DIR__ . '/../../../../doctrine/phpcr-odm/lib/Doctrine/ODM/PHPCR/Mapping/Annotations/DoctrineAnnotations.php');
-
         // Attach to helper set event and load the entity manager helper.
         $events->attach('doctrine', 'loadCli.post', function(EventInterface $e) {
             /* @var $cli \Symfony\Component\Console\Application */

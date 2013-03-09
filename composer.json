@@ -13,20 +13,20 @@
     "homepage": "http://www.doctrine-project.org/",
     "authors": [
         {
-            "name": "Marco Pivetta",
-            "email": "ocramius@gmail.com",
+            "name":     "Marco Pivetta",
+            "email":    "ocramius@gmail.com",
             "homepage": "http://marco-pivetta.com/"
         }
     ],
     "require": {
-        "php": ">=5.3.3",
-        "doctrine/phpcr-odm": "dev-master",
-        "jackalope/jackalope-jackrabbit": "dev-master",
+        "php":                               ">=5.3.3",
+        "doctrine/phpcr-odm":                "dev-master",
+        "jackalope/jackalope-jackrabbit":    "dev-master",
         "jackalope/jackalope-doctrine-dbal": "dev-master",
-        "doctrine/doctrine-module": ">=0.5.3"
+        "doctrine/doctrine-module":          "~0.7"
     },
     "suggest": {
-        "midgard/phpcr": "Midgard2 adapter for PHPCR if you want to use midgard instead of dbal or jackrabbit",
+        "midgard/phpcr":             "Midgard2 adapter for PHPCR if you want to use midgard instead of dbal or jackrabbit",
         "ocramius/ocra-di-compiler": "Since the module uses Zend\\Di extensively, consider compiling it with OcraDiCompiler"
     },
     "autoload": {
