@@ -17,6 +17,8 @@ Following steps are necessary to get this project working (considering a zf2-ske
 
   1. add `"ocramius/zf-phpcr-odm": "dev-master"` to your `composer.json` (`"minimum-stability": "dev"` is also required)
   2. Add `DoctrineModule` and `ZfPhpcrOdm` to the enabled modules list
+  3. create directory `my/project/directory/data/ZfPhpcrOdm/Proxy` and make sure your application has write
+          access to it. This directory can be changed using the module options.
 
 ## Usage
 

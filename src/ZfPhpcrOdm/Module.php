@@ -5,6 +5,7 @@ use Zend\ModuleManager\Feature\ConfigProviderInterface;
 use Zend\ModuleManager\Feature\BootstrapListenerInterface;
 use Zend\EventManager\Event;
 use Zend\EventManager\EventInterface;
+use Doctrine\Common\Annotations\AnnotationRegistry;
 
 /**
  * Module that provides a PHPCR ODM DocumentManager
@@ -24,7 +25,7 @@ class Module implements ConfigProviderInterface, BootstrapListenerInterface
     /**
      * {@inheritDoc}
      */
-    public function onBootstrap(Event $e)
+    public function onBootstrap(EventInterface $e)
     {
         /* @var $app \Zend\Mvc\ApplicationInterface */
         $app = $e->getTarget();
