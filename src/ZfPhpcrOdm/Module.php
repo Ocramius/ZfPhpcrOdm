@@ -45,7 +45,7 @@ class Module implements ConfigProviderInterface, BootstrapListenerInterface
                 new \PHPCR\Util\Console\Command\NodeTypeRegisterCommand(),
                 new \Doctrine\ODM\PHPCR\Tools\Console\Command\RegisterSystemNodeTypesCommand(),
                 new \Jackalope\Tools\Console\Command\JackrabbitCommand(),
-                new \Jackalope\Tools\Console\Command\InitDoctrineDbalCommand()
+                new \Jackalope\Tools\Console\Command\InitDoctrineDbalCommand(),
             ));
 
             /* @var $sm \Zend\ServiceManager\ServiceLocatorInterface */
