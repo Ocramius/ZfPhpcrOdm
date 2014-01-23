@@ -20,9 +20,9 @@
     ],
     "require": {
         "php":                               ">=5.3.3",
-        "doctrine/phpcr-odm":                "dev-master",
-        "jackalope/jackalope-jackrabbit":    "dev-master",
-        "jackalope/jackalope-doctrine-dbal": "dev-master",
+        "doctrine/phpcr-odm":                "1.0.0",
+        "jackalope/jackalope-jackrabbit":    "1.0.1",
+        "jackalope/jackalope-doctrine-dbal": "1.0.0",
         "doctrine/doctrine-module":          "~0.7"
     },
     "suggest": {
